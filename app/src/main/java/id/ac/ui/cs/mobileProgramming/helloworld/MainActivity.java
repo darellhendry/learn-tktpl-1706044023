@@ -6,7 +6,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -41,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         EditText message = findViewById(R.id.messageTarget);
         TextView output = findViewById(R.id.output);
 
-        String encrypted = VigenereChiper.encrypt(message.getText().toString(), KEY);
+        String encrypted = VigenereCipher.encrypt(message.getText().toString(), KEY);
         output.setText(encrypted);
     }
 
@@ -49,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         EditText message = findViewById(R.id.messageTarget);
         TextView output = findViewById(R.id.output);
 
-        String encrypted = VigenereChiper.decrypt(message.getText().toString(), KEY);
+        String encrypted = VigenereCipher.decrypt(message.getText().toString(), KEY);
         output.setText(encrypted);
     }
 }

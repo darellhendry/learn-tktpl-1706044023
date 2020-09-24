@@ -8,12 +8,12 @@ public class MainActivityTest {
     MainActivity mainActivity = new MainActivity();
     @Test
     public void testEncryptVigenereCipher() {
-        String encrypted = VigenereChiper.encrypt("darell", "helloworld");
+        String encrypted = VigenereCipher.encrypt("darell", "helloworld");
         assertEquals("kecpzh",encrypted);
     }
     @Test
     public void testDecryptVigenereCipher() {
-        String decrypted = VigenereChiper.decrypt("kecpzh", "helloworld");
+        String decrypted = VigenereCipher.decrypt("kecpzh", "helloworld");
         assertEquals("darell",decrypted);
     }
 }

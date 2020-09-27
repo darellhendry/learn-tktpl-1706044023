@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">HelloWorld</string>
+    <string name="change">Change Color!</string>
+    <string name="messageText">Enter your message</string>
+    <string name="outputText">No Message</string>
+    <string name="decryptButton">Decrypt</string>
+    <string name="encryptButton">Encrypt</string>
 </resources>

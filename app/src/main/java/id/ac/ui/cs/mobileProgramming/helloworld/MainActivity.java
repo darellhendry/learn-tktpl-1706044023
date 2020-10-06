@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private final String TAG= "mainActivity";
     private final String[] helloWorlds = {"Hello World!","Kumusta, Mundo!", "Halo Dunia!", "Hallo Wereld!", "Bonjour le monde!"};
     private int stateIndex = 0;
+    private int iteration = 0;
     private boolean running = true;
     final Handler handler = new Handler();
 
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         if (savedInstanceState != null) {
             stateIndex = savedInstanceState.getInt("stateIndex");
+            iteration = savedInstanceState.getInt("iteration");
             running = savedInstanceState.getBoolean("running");
         }
         handler.post(runnable); // run thread
@@ -33,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         outState.putBoolean("running", running);
         outState.putInt("stateIndex", stateIndex);
+        outState.putInt("iteration", iteration);
     }
     @Override
     public void onBackPressed() {
@@ -54,13 +58,16 @@ public class MainActivity extends AppCompatActivity {
             updateUiView(helloWorlds[stateIndex]);
             if (running) {
                 stateIndex++;
+                iteration++;
             }
             handler.postDelayed(this, 1000);
         }
     };
     public void updateUiView(String text) {
         final TextView timeView = (TextView) findViewById(R.id.textView);
+        final TextView iterationView = (TextView) findViewById(R.id.textView3);
         timeView.setText(helloWorlds[stateIndex]);
+        iterationView.setText(String.format("Iteration: %s", String.valueOf(iteration)));
     }
     public void onClickExit(View view) {
         finish();

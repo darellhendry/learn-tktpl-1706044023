@@ -34,7 +34,6 @@ public class PokemonDetailFragment extends Fragment {
         }
     }
     public PokemonDetailFragment() {
-
     }
 
     public static PokemonDetailFragment newInstance() {
@@ -52,12 +51,10 @@ public class PokemonDetailFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.pokemon_detail_fragment, container, false);
-        TextView tvPokemonName = view.findViewById(R.id.pokemon_name);
-        tvPokemonName.setText(mViewModel.pokemon.name);
+        ((TextView)view.findViewById(R.id.pokemon_name)).setText(mViewModel.pokemon.name);
 
         String sTypes = TextUtils.join(",", mViewModel.pokemon.types);
-        TextView tvPokemonTypes = view.findViewById(R.id.types);
-        tvPokemonTypes.setText(sTypes);
+        ((TextView)view.findViewById(R.id.types)).setText(sTypes);
         return view;
     }
 

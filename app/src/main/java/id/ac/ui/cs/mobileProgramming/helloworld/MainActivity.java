@@ -49,8 +49,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     @Override
-    protected void onPostResume() {
-        super.onPostResume();
+    protected void onResume() {
+        super.onResume();
         receiverWifi = new WifiReceiver(wifiManager, wifiList);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION);
@@ -95,4 +95,5 @@ public class MainActivity extends AppCompatActivity {
             break;
         }
     }
+
 }
